@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>index</title>
+</head>
+<body>
+        <a th:text="${items.getCost()}" >value</a>
+        <a th:text="${items.getName()}">value</a>
+
+            <form th:method="PATCH" th:action="@{/item/{id}/buy(id=${items.getId()})}">
+            <input type="submit" value="купить"/>
+        </form>
+</body>
+</html>

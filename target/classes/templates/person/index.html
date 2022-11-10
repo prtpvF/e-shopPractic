@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <a th:text="${person.getUsername()}">value</a>
+  <a th:text="${person.getYearOfBirth()}">value</a>
+
+
+
+<div th:if="${!items.isEmpty()}">
+    <table th:each="item:${items}">
+        <tr>
+            <td>
+                <span th:text="${item.getName()}+','+${item.getCost()}">value</span>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
