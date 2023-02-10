@@ -3,28 +3,24 @@ package ru.mihail.springcourse.FirstSecurityApp.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.mihail.springcourse.FirstSecurityApp.DAO.ItemDAO;
-import ru.mihail.springcourse.FirstSecurityApp.models.Item;
+
 import ru.mihail.springcourse.FirstSecurityApp.models.Person;
 import ru.mihail.springcourse.FirstSecurityApp.services.ItemServices;
 import ru.mihail.springcourse.FirstSecurityApp.services.PersonDetailsServices;
-
-import javax.validation.Valid;
 
 @Controller
 @RequestMapping("item")
 public class ItemController {
     private final ItemServices itemServices;
     private final PersonDetailsServices personDetailsServices;
-    private final ItemDAO itemDAO;
+
 
     @Autowired
-    public ItemController(ItemServices itemServices, PersonDetailsServices personDetailsServices, ItemDAO itemDAO) {
+    public ItemController(ItemServices itemServices, PersonDetailsServices personDetailsServices) {
         this.itemServices = itemServices;
         this.personDetailsServices = personDetailsServices;
-        this.itemDAO = itemDAO;
+
     }
 
     @GetMapping("/show")
@@ -44,7 +40,13 @@ public class ItemController {
         System.out.println("вызываем метод");
         itemServices.buy(id, person);
         System.out.println("вызвали успешно");
-        return "redirect:/item/show";
+        return "redirect:/person/item";
+    }
+    @PatchMapping("/{id}/release")
+    public String deleteItemFromSHopList(@PathVariable("id") int id, @ModelAttribute("person") Person person){
+        itemServices.deleteFromShopList(id,person);
+        return "redirect:/person/hello";
+
     }
 
 

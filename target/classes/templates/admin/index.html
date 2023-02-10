@@ -10,6 +10,9 @@
     <a th:text="${person.getYearOfBirth()}">value</a>
     <a th:text="${person.getRole()}">value</a>
 
+    <form th:method="PATCH" th:action="@{/admin/{id}/updateRole(id=${person.getId()})}">
+        <input type="submit" value="поменять роль"/>
+    </form>
 
 </body>
 </html>

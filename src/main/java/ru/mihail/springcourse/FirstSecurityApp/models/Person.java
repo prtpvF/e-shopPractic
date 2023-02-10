@@ -3,6 +3,8 @@ package ru.mihail.springcourse.FirstSecurityApp.models;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,15 +15,21 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "username")
+    @NotEmpty
     private String username;
     @Column(name = "age")
+    @Min(1930)
+    @Max(2023)
     private int yearOfBirth;
     @Column(name = "password")
+    @NotEmpty
     private String password;
     @Column(name = "role")
     private String role;
     @OneToMany(mappedBy = "owner")
     private List<Item> items;
+    @Column(name = "created")
+    private Date createdAt;
 
     public Person() {
     }
@@ -79,6 +87,14 @@ public class Person {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     @Override

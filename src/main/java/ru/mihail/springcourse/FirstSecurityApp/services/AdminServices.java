@@ -66,4 +66,15 @@ public class AdminServices {
         itemRepository.deleteById(id);
     }
 
+    @Transactional
+    public void updateRole(int id, Person person){
+        Person personToUpdateRole = peopleRepository.findById(id).get();
+        person.setId(id);
+        person.setUsername(personToUpdateRole.getUsername());
+        person.setYearOfBirth(personToUpdateRole.getYearOfBirth());
+        person.setPassword(personToUpdateRole.getPassword());
+        person.setRole("ROLE_ADMIN");
+        peopleRepository.save(person);
+    }
+
 }

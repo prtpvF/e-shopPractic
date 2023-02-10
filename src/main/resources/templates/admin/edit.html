@@ -5,15 +5,19 @@
     <title>Title</title>
 </head>
 <body>
-<form th:method="PATCH" th:action="@{/admin/{id}/item(id=${item.getId()})}" th:object="${item}">
+<form th:method="POST" th:action="@{/admin/{id}/item(id=${item.getId()})}" th:object="${item}" enctype="multipart/form-data" >
     <label for="name">введите имя товара</label>
     <input type="text" th:field="*{name}" id="name">
     <br/>
     <label for="cost">введите цену</label>
     <input type="text" th:field="*{cost}" id="cost">
     <br/>
+
+
+
     <input type="submit" value="изменить">
 </form>
+
 
 </body>
 </html>

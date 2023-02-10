@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.mihail.springcourse.FirstSecurityApp.models.Person;
 import ru.mihail.springcourse.FirstSecurityApp.repositorys.PeopleRepository;
 
+import java.util.Date;
+
 @Service
 @Transactional(readOnly = true)
 public class RegistrationServices {
@@ -18,14 +20,15 @@ public class RegistrationServices {
         this.peopleRepository = peopleRepository;
         this.passwordEncoder = passwordEncoder;
     }
-    @Transactional
-    public void register(Person person){
 
-       person.setPassword(passwordEncoder.encode(person.getPassword()));
-       person.setRole("ROLE_ADMIN");
+    @Transactional
+    public void register(Person person) {
+        Date dateOfRegistration = new Date();
+        person.setPassword(passwordEncoder.encode(person.getPassword()));
+        person.setRole("ROLE_ADMIN");
+        person.setCreatedAt(dateOfRegistration);
 
         peopleRepository.save(person);
-
 
 
     }

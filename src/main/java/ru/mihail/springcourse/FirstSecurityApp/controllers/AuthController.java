@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.mihail.springcourse.FirstSecurityApp.models.Person;
 import ru.mihail.springcourse.FirstSecurityApp.services.RegistrationServices;
+import ru.mihail.springcourse.FirstSecurityApp.util.PersonValidator;
 
 import javax.validation.Valid;
 
@@ -17,10 +18,12 @@ import javax.validation.Valid;
 public class AuthController {
 
     private final RegistrationServices registrationServices;
+    private final PersonValidator personValidator;
         @Autowired
-    public AuthController( RegistrationServices registrationServices) {
+    public AuthController(RegistrationServices registrationServices, PersonValidator personValidator) {
 
             this.registrationServices = registrationServices;
+            this.personValidator = personValidator;
         }
 
     @GetMapping("/login")
@@ -30,12 +33,13 @@ public class AuthController {
 
    @GetMapping("/registration")
     public String registrationPage(@ModelAttribute("person") Person person){
+
         return  "auth/registration";
     }
 
     @PostMapping("/registration")
     public String preformRegistration(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult){
-
+     personValidator.validate(person,bindingResult);
 
         if(bindingResult.hasErrors()) {
 

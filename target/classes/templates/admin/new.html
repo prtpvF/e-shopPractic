@@ -6,7 +6,11 @@
 </head>
 <body>
 <form th:method="POST" th:action="@{/admin}" th:object="${item}">
-    <label for="name">введите имя книги</label>
+    <label for="name">введите имя товара</label>
+    <img th:src="${item.getImage()}" alt="Icon" class="d-block w-100">
+    <input type="text" th:field="*{image}" id="image">
+
+    <label for="name">введите имя товара</label>
     <input type="text" th:field="*{name}" id="name">
     <br/>
     <label for="cost">введите цену</label>

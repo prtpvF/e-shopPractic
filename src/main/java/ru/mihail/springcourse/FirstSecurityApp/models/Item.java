@@ -1,6 +1,9 @@
 package ru.mihail.springcourse.FirstSecurityApp.models;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "item")
@@ -16,17 +19,35 @@ public class Item {
     @ManyToOne
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private Person owner;
+    @Column(name = "itempath")
+    private String image;
+    @Column(name = "description")
+    private String description;
+
+
+
+
 
     public Item() {
     }
 
-    public Item( String name, int cost) {
+    public Item( String name, int cost, String image) {
         this.name = name;
         this.cost = cost;
+        this.image = image;
+
     }
 
     public Person getOwner() {
         return owner;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setOwner(Person owner) {
@@ -43,6 +64,14 @@ public class Item {
 
     public String getName() {
         return name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setName(String name) {
