@@ -1,0 +1,145 @@
+body{
+
+}
+
+.itemPage{
+    text-decoration-color: black;
+    color: black;
+    text-align: right;
+}
+.itemPage:hover{
+    size: 20px;
+}
+.log:hover{
+    -webkit-transform: scale(0.9) ;
+}
+.hav{
+    color: white;
+    size: 30px;
+    margin-left: 5%;
+    line-height: 70px;
+    text-decoration: none;
+
+}
+.lk{
+    width: 70px;
+    float: right;
+    margin-top: 1%;
+    bottom: 80%;
+    height: 50px;
+    color:white;
+}
+.hav:hover{
+    color: white;
+    -webkit-transform: scale(0.9);
+    cursor: pointer;
+}
+.footer{background-color: black;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+   position: absolute;
+
+    }
+.allImg{
+    display: flex;
+    margin: 10px;
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+.log{
+    width: 70px;
+   float: right;
+   margin-top:1.3%;
+    bottom: 80%;
+    background-color: black;
+    color:white;
+
+}
+.itemImage{
+   width: 200px;
+    height: 180px;
+}
+h5{
+    display: inline;
+}
+.mon{
+    display: inline-block;
+}
+.card1 {
+    display: flex;
+    flex-direction: row;
+
+    left: 0%;
+
+
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    width: 170px;
+    left: 0%;
+
+
+
+}
+.form:hover{
+    box-shadow: 10px 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.card-title1{
+    display: flex;
+    justify-content: center;
+}
+.card-body1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.card-img-top1{
+    width: 150px;
+    height: 150px;
+}
+.btn-primary1{
+    margin-top: 5px;
+    color: white;
+    background-color: black;
+    width: 90px;
+    height: 35px;
+
+}
+
+.card1{
+    height: 400px;
+    position: center;
+    align-content: center;
+    margin-top: 12%;
+}
+.card-text1{
+
+}
+.emptyList{
+    position: center;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-top: 25%;
+}
+.head{
+    height: 80px;
+    width: 100%;
+    background-color: black;
+    right: 0;
+    top: 0;
+    position: absolute;
+}
+.menu{
+    display: flex;
+
+}
